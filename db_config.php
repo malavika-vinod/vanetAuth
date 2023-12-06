@@ -2,7 +2,7 @@
 $host = "localhost"; // e.g., localhost
 $username = "root";
 $password = "";
-$database = "Vanet";
+$database = "vanet";
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);
