@@ -24,8 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Registration successful
         $user_id = $conn->insert_id; // Get the last inserted user ID
         $pythonScriptPath = 'generate.py';  // Replace with the actual path
-        $command = "python3 $pythonScriptPath $user_id '$user' '$password' '$lno','$vno'";
+        $command = "python3 $pythonScriptPath $user_id '$user' '$password' '$lno' '$vno'";
         $result = shell_exec($command);
+
+        echo "Command: $command<br>";
+echo "Command Result: $result<br>";
         // Set session variables
         session_start();
         $_SESSION['user_id'] = $user_id;
