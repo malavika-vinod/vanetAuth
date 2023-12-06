@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration</title>
+    <style>
+   
+       
+        .container {
+            width: 50%;
+     
+        }
+
+        section {
+    padding: 15px; /* Increased padding for better visual appeal */
+    background-color: #fff;
+    margin-top: 50px; /* Slightly reduced margin at the top */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Adjusted box-shadow */
+
+    /* Added max-width and margin auto to center the box */
+    max-width: 650px;
+    max-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section input[type="text"],
+section input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    /* Adjusted font size and padding for better styling */
+    font-size: 12px;
+    padding: 8px;
+}
+
+
+        section label {
+            display: block;
+            font-size: 18px;
+          
+            margin-bottom: 8px;
+        }         
+        section .address-heading{
+            font-size: 18px;
+       
+            margin-bottom: 10px;
+        }
+
+        section .address-container {
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+
+        section .address-container input {
+            flex: 1;
+            margin-right: 10px;
+            width: calc(100% - 20px);
+        }
+
+   
+        section input[type="submit"] {
+            background-color: #e8491d;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        section input[type="submit"]:hover {
+            background-color: #d14836;
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #1c1c1c;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 4px solid;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header .highlight, header a:hover {
+            color: #e8491d;
+        }
+
+        header a#register-btn, header a#login-btn {
+            border: 1px solid #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        header #register-btn {
+            background-color: #e8491d;
+        }
+
+        header #login-btn {
+            background-color: #666;
+        }
+
+        header form {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header input.search-bar {
+            width: 300px;
+            height: 20px;
+            padding: 5px;
+            float: left;
+            color: black;
+        }
+
+        header button#search-btn {
+            float: left;
+            border: none;
+            padding: 5px 10px;
+            margin-top: 0;
+            background: #e8491d;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        header button#search-btn:hover {
+            color: #e8491d;
+            background: #ffffff;
+        }
+
+        header button#search-btn:active {
+            outline: none;
+        }
+
+        header button#menu-btn {
+            display: none;
+        }
+
+        header #menu {
+            clear: both;
+            max-height: 0;
+            transition: max-height .2s ease-out;
+        }
+
+        header .main-nav {
+            display: inline;
+        }
+
+        header #menu-icon {
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            header #menu-icon {
+                display: inline;
+            }
+
+            header #menu {
+                overflow: hidden;
+                max-height: 240px;
+            }
+
+            header .main-nav {
+                display: none;
+            }
+
+            header #branding, header form, header #menu {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+
+            header #branding h1, header ul, header form input, header button#search-btn {
+                display: block;
+                margin: 0 auto;
+            }
+
+            header form {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            header input.search-bar {
+                width: 80%;
+            }
+
+            header button#search-btn {
+                width: 50%;
+            }
+
+            header button#menu-btn {
+                border: none;
+                padding: 5px 10px;
+                margin: 20px;
+                color: #ffffff;
+                background: #e8491d;
+                border-radius: 5px;
+            }
+
+            header button#menu-btn:active {
+                outline: none;
+            }
+        }
+ 
+     
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Vehicle</span> Registration</h1>
+            </div>
+            <nav>
+                <div id="menu">
+                    <ul class="main-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <form action="process_registration.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+ <!-- Address Heading -->
+ <div class="address-heading">Address:</div>
+
+ <!-- Address Fields -->
+
+
+     <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address" style="font-size: 15px;"required>
+
+
+     <input type="text" id="streetAddress2" name="streetAddress2" placeholder="Street Address 2"style="font-size: 15px;" required>
+
+     <div class="address-container">
+
+ <input type="text" id="city" name="city" placeholder="City"style="font-size: 15px;" required>
+
+
+ <input type="text" id="state" name="state" placeholder="State" style="font-size: 15px;"required>
+</div>
+
+ <input type="text" id="postalCode" name="postalCode" placeholder=" Postal/Zip Code" style="font-size: 15px;" required>
+
+
+ <input type="text" id="country" name="country" placeholder="Country"style="font-size: 15px;" required>
+
+
+                <label for="vehicleNo">Vehicle No:</label>
+                <input type="text" id="vehicleNo" name="vehicleNo" required>
+
+                <label for="licenseNo">License No:</label>
+                <input type="text" id="licenseNo" name="licenseNo" required>
+                <label for="userImage">Upload Image:</label>
+                <input type="file" id="userImage" name="userImage" accept="image/*">
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+
+                <input type="submit" value="Register">
+
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>
