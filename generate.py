@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import random
 import sympy
@@ -13,8 +14,11 @@ def generate_multiplicative_group_element(n):
     return random.choice(group)
 
 def calculate_d(m, lno, k, s):
-    d = pow(m, lno * k, s)
+    hashed_data = hashlib.sha256(lno.encode('utf-8')).hexdigest()
+    numeric_l = int(hashed_data, 16)
+    d = pow(m, numeric_l  * k, s)
     return d
+
 def generate_l(username, pas):
     # Combine username and password
     combined_data = f"{username}{pas}".encode('utf-8')
@@ -23,7 +27,8 @@ def generate_l(username, pas):
     hashed_data = hashlib.sha256(combined_data).hexdigest()
 
     # Convert the hash to a numeric value (you might need to adapt this based on your needs)
-    numeric_l = int(hashed_data, 16)
+    numeric_l = 10
+    #int(hashed_data, 16)
 
     return numeric_l
 
@@ -31,7 +36,7 @@ def generate_additional_parameters():
     s = generate_large_prime()
     m = generate_multiplicative_group_element(s)
     k = random.randint(1, 1000)
-    d = calculate_d(m, int(lno), k, s)
+    d = calculate_d(m, lno, k, s)
     l = generate_l(username, pas)
     
     dd = random.randint(1, d//2)
@@ -45,7 +50,7 @@ def store_additional_parameters(user_id, s, m, d, l, k, dd, ld, kd):
         host="localhost",
         user="root",
         password="",
-        database="vanet"
+        database="Vanet"
     )
 
     # Create a cursor
