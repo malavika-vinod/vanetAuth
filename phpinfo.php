@@ -4,5 +4,7 @@ error_reporting(E_ALL);
 
 $result = shell_exec('python3 -c "print(\'Hello from Python\')"');
 echo "result: $result";
+$colors = array("Red", "Green", "Blue");
+echo $colors[0]; // Outputs: Red
 
 ?>
