@@ -1,3 +1,9 @@
+
+<?php
+$currentPath = getenv('PATH');
+$newPath = '/usr/local/bin:' . $currentPath;
+putenv("PATH=$newPath");
+?>
 <?php
 include 'db_config.php';
 ini_set('display_errors', 1);
@@ -23,12 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         // Registration successful
         $user_id = $conn->insert_id; // Get the last inserted user ID
-        $pythonScriptPath = 'generate.py';  // Replace with the actual path
-        $command = "python3 $pythonScriptPath $user_id '$user' '$password' '$lno' '$vno'";
+        $pythonScriptPath ="/Applications/XAMPP/xamppfiles/htdocs/UI/generate.py";  // Replace with the actual path
+        echo "Python Script Path: $pythonScriptPath<br>";
+        $command = "python3 $pythonScriptPath '$user_id' '$user' '$password' '$lno' '$vno' 2>&1";
         $result = shell_exec($command);
-
-        echo "Command: $command<br>";
-echo "Command Result: $result<br>";
+        echo "Result: $result";
         // Set session variables
         session_start();
         $_SESSION['user_id'] = $user_id;
